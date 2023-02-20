@@ -1,0 +1,31 @@
+<div class="container">
+    <div [ngClass]="!isFormValid && !isInputsEmpty ? 'err-shown' : ''">
+        <p *ngIf="!isNameValid" class="text-left">Name should be between 5 and 50 characters.</p>
+        <p *ngIf="!isAgeValid" class="text-left">Age must be between 16 and 100.</p>
+        <p *ngIf="!isEmailValid" class="text-left">Invalid email address format.</p>
+        <p *ngIf="!isPhoneValid" class="text-left">Phone number must be between 10 to 20 digits.</p>
+        <p *ngIf="!isAddressValid" class="text-left">Address should be between 5 and 50 characters.</p>
+    </div>
+
+    <form class="form-control" [formGroup]="updateForm">
+        <div >
+            <input #newName type="text" formControlName="name" class="form-input" placeholder="Full name"
+                [value]="user.name" [ngClass]="!isNameValid ? 'invalid' : 'valid'">
+            <input #newAge type="number" formControlName="age" class="form-input" placeholder="Age" [value]="user.age"
+                [ngClass]="!isAgeValid ? 'invalid' : 'valid'">
+        </div>
+        <div >
+
+            <input #newPhone type="text" formControlName="phone" class="form-input" placeholder="Phone Number"
+                [value]="user.phone" [ngClass]="!isPhoneValid ? 'invalid' : 'valid'">
+            <input #newAddress type="text" formControlName="address" class="form-input" placeholder="Address"
+                [value]="user.address" [ngClass]="!isAddressValid ? 'invalid' : 'valid'">
+        </div>
+        <input #newEmail type="email" formControlName="email" class="form-input" placeholder="Email Address"
+            [value]="user.email" [ngClass]="!isEmailValid ? 'invalid' : 'valid'">
+
+        <button class="form-submit" [disabled]="!isFormValid"
+            (click)="updateUser(newName.value,newAge.value,newEmail.value,newPhone.value,newAddress.value)">Update
+            Student</button>
+    </form>
+</div>

@@ -1,0 +1,43 @@
+<div >
+    <table >
+        <thead>
+            <tr >
+                <th >ID</th>
+                <th >First Name</th>
+                <th >Last Name</th>
+                <th>Age</th>
+                <th >Email</th>
+                <th >Phone</th>
+                <th >Address</th>
+                <th >Actions</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="students;else falseBlock">
+            <tr *ngFor="let user of students">
+                <td >{{user.id}}</td>
+                <td >{{user.name.split(' ')[0] || '-'}}</td>
+                <td >{{user.name.split(' ')[1] || '-'}}</td>
+                <td >{{user.age}}</td>
+                <td >{{user.email}}</td>
+                <td >{{user.phone}}</td>
+                <td >{{user.address}}</td>
+                <td >
+                    <a routerLink="/users/{{user.id}}"
+                       >Details</a>
+                    <a routerLink="/users/edit/{{user.id}}"
+                    >Update</a>
+                    <a routerLink="/users/delete/{{user.id}}"
+                       >Delete</a>
+                </td>
+            </tr>
+        </tbody>
+        <ng-template #falseBlock>
+            <tbody>
+                <tr *ngIf="!students" >
+                    <td >There's no users to show.</td>
+                </tr>
+            </tbody>
+
+        </ng-template>
+    </table>
+</div>

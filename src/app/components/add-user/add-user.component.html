@@ -1,0 +1,29 @@
+<div class="container">
+
+    <div [ngClass]="!isFormValid && !isInputsEmpty ? 'err-shown' : ''">
+        <p *ngIf="!isNameValid" class="text-left">Name should be between 5 and 50 characters.</p>
+        <p *ngIf="!isAgeValid" class="text-left">Age must be between 16 and 100.</p>
+        <p *ngIf="!isEmailValid" class="text-left">Invalid email address format.</p>
+        <p *ngIf="!isPhoneValid" class="text-left">Phone number must be between 10 to 20 digits.</p>
+        <p *ngIf="!isAddressValid" class="text-left">Address should be between 5 and 50 characters.</p>
+    </div>
+    <form class="form-control" [formGroup]="registerForm">
+        <div >
+            <input #name formControlName="name" type="text" [ngClass]="!isNameValid ? 'invalid' : 'valid'"
+                class="form-input" placeholder="Name">
+            <input #age type="number" formControlName="age" [ngClass]="!isAgeValid ? 'invalid' : 'valid'"
+                class="form-input" placeholder="Age">
+        </div>
+        <div>
+            <input #phone type="text" formControlName="phone" [ngClass]="!isPhoneValid ? 'invalid' : 'valid'"
+                class="form-input" placeholder="Phone">
+            <input #address type="text" formControlName="address" [ngClass]="!isAddressValid ? 'invalid' : 'valid'"
+                class="form-input" placeholder="Address">
+        </div>
+        <input #email type="email" formControlName="email" [ngClass]="!isEmailValid ? 'invalid' : 'valid'"
+            class="form-input" placeholder="Email">
+        <button class="form-submit" [disabled]="!isFormValid"
+            (click)="addUser(name.value,age.value,email.value,phone.value,address.value)">Add
+            Student</button>
+    </form>
+</div>

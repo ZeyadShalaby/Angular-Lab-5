@@ -1,0 +1,36 @@
+{
+    "students": [
+      {
+        "id": 1,
+        "name": "Student One",
+        "email": "studentone@mail.com",
+        "address": "Address One",
+        "phone": "011111111",
+        "age": 14
+      },
+      {
+        "id": 2,
+        "name": "Student two",
+        "email": "studenttwo@mail.com",
+        "address": "Address Two",
+        "phone": "0222222222",
+        "age": 16
+      },
+      {
+        "id": 3,
+        "name": "Student Three",
+        "email": "studentthree@mail.com",
+        "address": "Address Three",
+        "phone": "033333333",
+        "age": 15
+      },
+      {
+        "id": 4,
+        "name": "Student Four",
+        "email": "studentfour@mail.com",
+        "address": "Address Four",
+        "phone": "0444444444",
+        "age": 17
+      }
+    ]
+  }
